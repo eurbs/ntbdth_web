@@ -1,0 +1,10 @@
+{
+  "name": "flacore-seed",
+  "version": "1.0.0",
+  "description": "Seed for flask+coffeescript+react(+browserify)",
+  "author": "Mitchell Van Der Hoeff",
+  "license": "ISC",
+  "devDependencies": {
+    "coffee-reactify": "^4.0.0"
+  }
+}
