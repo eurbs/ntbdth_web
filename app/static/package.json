@@ -1,8 +1,8 @@
 {
-  "name": "flacore-seed",
+  "name": "ntbdth",
   "version": "1.0.0",
-  "description": "Seed for flask+coffeescript+react(+browserify)",
-  "author": "Mitchell Van Der Hoeff",
+  "description": "Scavenger hunt site in flask+coffeescript+react(+browserify)",
+  "author": "Emilee Urbanek",
   "license": "ISC",
   "devDependencies": {
     "coffee-reactify": "^4.0.0"
