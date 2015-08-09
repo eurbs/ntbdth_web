@@ -2,7 +2,9 @@ from flask import send_file, request
 
 from app import app
 import csv
+import os
 
+PATH = os.path.abspath('')
 
 @app.route('/')
 def index():
@@ -11,8 +13,17 @@ def index():
 
 @app.route('/answers', methods=['POST'])
 def answers():
-	# do stuff with csv
-	print(request)
-	data = request.json['ans']
-	print(data)
-	return "this is the request: " + data + " and this is the first clue"
+    # grab the answer attempt
+    answerTry = request.json['ans']
+
+    # check (very inefficiently.. next time, database or at least json)
+    # if the key that was entered has a match in the first column of the
+    # csv
+    with open(os.path.join(PATH, 'app', 'answers.csv'), 'rt') as csvfile:
+        answerreader = csv.reader(csvfile, delimiter=',')
+        for row in answerreader:
+            if answerTry == row[0]:
+                return answerTry
+
+        # empty string if no answer was found
+        return ""

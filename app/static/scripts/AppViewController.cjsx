@@ -3,7 +3,8 @@ xhr = require('xhr')
 
 ContentDisplay = React.createClass
     render: ->
-        if (@props.textToRender == "")
+        # wrong code was entered
+        if not @props.textToRender
             <div className="alert alert-danger" role="alert">
                 plz try again. that was sad dude.
             </div>
@@ -11,6 +12,7 @@ ContentDisplay = React.createClass
             <div className="well well-lg">
                 {@props.textToRender}
             </div>
+            
 
 module.exports =
 React.createClass
@@ -45,7 +47,7 @@ React.createClass
         return (
             <div className="container">
                 <h1> help. </h1>
-                <ContentDisplay textToRender={@state.message} />
+                <ContentDisplay textToRender=@state.message />
                 <form onSubmit={@onSubmit}>
                     <input type="text" className="form-control" onChange={@onTextFieldChange}/>
                     <input type="submit" className="form-control"/>
