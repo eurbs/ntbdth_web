@@ -1,7 +1,7 @@
 xhr = require('xhr')
 
 
-ContentDisplay = React.createClass
+StorylineDisplay = React.createClass
     render: ->
         # wrong code was entered
         if not @props.textToRender
@@ -12,15 +12,20 @@ ContentDisplay = React.createClass
             <div className="well well-lg">
                 {@props.textToRender}
             </div>
-            
+
+ClueDisplay = React.createClass
+    render: ->
+        <div className="well well-sm">
+            {@props.textToRender}
+        </div>
 
 module.exports =
 React.createClass
     getInitialState: ->
         return {
             answerTry: ""
-            message: "Welcome, Nick. Enter your codes below"
-            textToRender: ""
+            message: "Welcome, Nick. Enter your codes below."
+            clue: "What might go here?"
         }
 
     onSubmit: (e) ->
@@ -37,7 +42,9 @@ React.createClass
                 "Content-Type": "application/json"
             }
         }, (err, resp, body) =>
-            @setState(message: body)
+            returned_data = JSON.parse(body)
+            @setState(message: returned_data["storyline"])
+            @setState(clue: returned_data["clue"])
         )
 
     onTextFieldChange: (e) ->
@@ -47,10 +54,12 @@ React.createClass
         return (
             <div className="container">
                 <h1> help. </h1>
-                <ContentDisplay textToRender=@state.message />
+                <StorylineDisplay textToRender=@state.message />
                 <form onSubmit={@onSubmit}>
                     <input type="text" className="form-control" onChange={@onTextFieldChange}/>
                     <input type="submit" className="form-control"/>
                 </form>
+                <br/><br/><br/>
+                <ClueDisplay textToRender=@state.clue />
             </div>
         )
