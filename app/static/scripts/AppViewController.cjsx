@@ -1,15 +1,24 @@
 xhr = require('xhr')
 
-Swag = React.createClass
+
+ContentDisplay = React.createClass
     render: ->
-        <h1> swag: {@props.message} </h1>
+        if (@props.textToRender == "")
+            <div className="alert alert-danger" role="alert">
+                plz try again. that was sad dude.
+            </div>
+        else
+            <div className="well well-lg">
+                {@props.textToRender}
+            </div>
 
 module.exports =
 React.createClass
     getInitialState: ->
         return {
             answerTry: ""
-            message: ""
+            message: "Welcome, Nick. Enter your codes below"
+            textToRender: ""
         }
 
     onSubmit: (e) ->
@@ -26,24 +35,20 @@ React.createClass
                 "Content-Type": "application/json"
             }
         }, (err, resp, body) =>
-            console.log(body)
-            hah = body
-            @setState(message: hah)
+            @setState(message: body)
         )
 
     onTextFieldChange: (e) ->
-        @setState(answerTry: e.target.value)
+        @setState(answerTry: e.target.value)    
 
     render: ->
         return (
-            <div className="jumbotron">
-                <h1> Flacore Template</h1>
-                <Swag message="emilee" />
-                <p>{@state.message}</p>
+            <div className="container">
+                <h1> help. </h1>
+                <ContentDisplay textToRender={@state.message} />
                 <form onSubmit={@onSubmit}>
-                    <input type="text" onChange={@onTextFieldChange}/>
+                    <input type="text" className="form-control" onChange={@onTextFieldChange}/>
                     <input type="submit" className="form-control"/>
                 </form>
-                <p> ..loaded!ytguukhjbhj Now let's get to work. </p>
             </div>
         )
