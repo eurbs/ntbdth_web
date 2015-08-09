@@ -6,5 +6,8 @@
   "license": "ISC",
   "devDependencies": {
     "coffee-reactify": "^4.0.0"
+  },
+  "dependencies": {
+    "xhr": "^2.0.3"
   }
 }
