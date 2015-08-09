@@ -2,6 +2,7 @@ from flask import send_file, request
 
 from app import app
 import csv
+import json
 import os
 
 PATH = os.path.abspath('')
@@ -24,7 +25,7 @@ def answers():
         for row in answerreader:
             if answerTry == row[0]:
                 # todo: figure out how to render an entry with multiple paragraphs
-                return row[1]
+                return json.dumps({'storyline': row[1], 'clue': row[2]})
 
         # empty string if no answer was found
-        return ""
+        return json.dumps({'storyline': "", 'clue': "no clu 4 u"})
