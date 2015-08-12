@@ -15,8 +15,9 @@ StorylineDisplay = React.createClass
 
 ClueDisplay = React.createClass
     render: ->
-        <div className="well well-sm">
-            {@props.textToRender}
+        # this is super dangerous, but it is just a treasure hunt after all
+        <div className="well well-sm" dangerouslySetInnerHTML={{__html: @props.textToRender}}>
+            
         </div>
 
 module.exports =

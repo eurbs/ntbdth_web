@@ -32,3 +32,7 @@ def answers():
 
         # empty string if no answer was found
         return json.dumps({'storyline': "", 'clue': "no clu 4 u"})
+
+@app.route('/questquest.png', methods=['GET'])
+def quest_image_clue():
+    return send_file('./questquest.png')
