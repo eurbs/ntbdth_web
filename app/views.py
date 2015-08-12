@@ -17,6 +17,9 @@ def answers():
     # grab the answer attempt
     answerTry = request.json['ans']
 
+    # log attempt
+    print('ATTEMPT: ' + answerTry + " -- " + "SOURCE: " + request.access_route[0])
+
     # check (very inefficiently.. next time, database or at least json)
     # if the key that was entered has a match in the first column of the
     # csv
