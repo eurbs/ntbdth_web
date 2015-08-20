@@ -27,6 +27,7 @@ React.createClass
             answerTry: ""
             message: "Welcome, Nick. Enter your codes below."
             clue: "What might go here?"
+            yesNo: false
         }
 
     onSubmit: (e) ->

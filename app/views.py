@@ -36,3 +36,11 @@ def answers():
 @app.route('/questquest.png', methods=['GET'])
 def quest_image_clue():
     return send_file('./questquest.png')
+
+@app.route('/qrcode.png', methods=['GET'])
+def lego_quest_answer():
+    return send_file('./qrcode.png')
+
+@app.route('/decyphered.png', methods=['GET'])
+def loopback_2_answer():
+    return send_file('./decyphered.png')
