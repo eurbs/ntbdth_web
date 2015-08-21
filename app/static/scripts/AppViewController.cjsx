@@ -26,7 +26,7 @@ React.createClass
         return {
             answerTry: ""
             message: "Welcome, Nick. The adventure continues."
-            clue: "When the hands both point down (lol clue failure. 6:30pm sharp.
+            clue: "When the hands both point down plus 30 mins (lol clue failure. 7pm sharp.
                   DONT BE EARLY), a particular friend who has only been a side player 
                     has some plans for you. Dress nicely and make your way to his house. 
                     This is about to get wild."
